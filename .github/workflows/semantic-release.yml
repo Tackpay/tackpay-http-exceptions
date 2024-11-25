@@ -1,0 +1,51 @@
+name: Release
+
+on:
+  push:
+    branches: [main, beta, prerelease]
+  pull_request:
+    branches: [main]
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: latest
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build package
+        run: pnpm build
+      # Abilita i test se necessario
+      # - name: Run specs
+      #   env:
+      #     CL_SDK_ORGANIZATION: sdk-test-org
+      #     CL_SDK_CLIENT_ID: ${{secrets.CL_SDK_CLIENT_ID}}
+      #     CL_SDK_CLIENT_SECRET: ${{secrets.CL_SDK_CLIENT_SECRET}}
+      #     CL_SDK_ACCESS_TOKEN_EXPIRED: ${{secrets.CL_SDK_ACCESS_TOKEN_EXPIRED}}
+      #   run: pnpm test
+      - name: Configure .npmrc
+        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+        
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: pnpx semantic-release

@@ -1,0 +1,35 @@
+{
+  "name": "@tackpay/http-exceptions",
+  "version": "1.0.0",
+  "description": "The JSON API exception package",
+  "files": [
+    "lib/**"
+  ],
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "module": "lib/index.mjs",
+  "scripts": {
+    "build": "tsup",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix",
+    "test": "jest"
+  },
+  "keywords": [
+    "json-api",
+    "exception"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@commercelayer/eslint-config-ts": "^1.4.5",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.9.3",
+    "eslint": "^8.57.0",
+    "jest": "^29.7.0",
+    "semantic-release": "^24.2.0",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2"
+  }
+}

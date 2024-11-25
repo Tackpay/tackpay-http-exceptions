@@ -1,0 +1,30 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "useDefineForClassFields": true,
+        "lib": [
+            "DOM",
+            "DOM.Iterable",
+            "ESNext"
+        ],
+        "allowJs": false,
+        "skipLibCheck": true,
+        "esModuleInterop": false,
+        "allowSyntheticDefaultImports": true,
+        "strict": true,
+        "forceConsistentCasingInFileNames": true,
+        "module": "ESNext",
+        "moduleResolution": "Bundler",
+        "resolveJsonModule": true,
+        "isolatedModules": false,
+        "noUncheckedIndexedAccess": true,
+        "noEmit": true,
+        "pretty": true // Stylize errors and messages using color and context
+    },
+    "include": [
+        "src",
+        "tests",
+        "jest.config.ts"
+    ],
+    "compileOnSave": false // Compile on save
+}
