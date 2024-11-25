@@ -1,6 +1,7 @@
 {
   "name": "@tackpay/http-exceptions",
   "version": "1.0.0",
+  "private": "false",
   "description": "The JSON API exception package",
   "files": [
     "lib/**"
@@ -36,5 +37,8 @@
     "ts-node": "^10.9.2",
     "tsup": "^8.3.5",
     "typescript": "^5.7.2"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
