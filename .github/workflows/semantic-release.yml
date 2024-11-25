@@ -33,14 +33,8 @@ jobs:
 
       - name: Build package
         run: pnpm build
-      # Abilita i test se necessario
-      # - name: Run specs
-      #   env:
-      #     CL_SDK_ORGANIZATION: sdk-test-org
-      #     CL_SDK_CLIENT_ID: ${{secrets.CL_SDK_CLIENT_ID}}
-      #     CL_SDK_CLIENT_SECRET: ${{secrets.CL_SDK_CLIENT_SECRET}}
-      #     CL_SDK_ACCESS_TOKEN_EXPIRED: ${{secrets.CL_SDK_ACCESS_TOKEN_EXPIRED}}
-      #   run: pnpm test
+      - name: Run specs
+        run: pnpm test
       - name: Configure .npmrc
         run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
         
