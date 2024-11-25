@@ -18,10 +18,14 @@
     "json-api",
     "exception"
   ],
-  "author": "",
-  "license": "ISC",
+  "author": {
+    "name": "TackPay",
+    "email": "support@tackpay.net"
+  },
+  "license": "MIT",
   "devDependencies": {
     "@commercelayer/eslint-config-ts": "^1.4.5",
+    "@semantic-release/changelog": "^6.0.3",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.9.3",
     "eslint": "^8.57.0",
